@@ -92,7 +92,7 @@ export async function GET(req: Request) {
         const h = [180, 220, 260, 320, 380][i % 5];
         return {
           id: `extra-${i}`,
-          url: `https://source.unsplash.com/random/560x${h}?${encodeURIComponent(query)}&sig=${i + 1}`,
+          url: `https://picsum.photos/seed/extra-main-${encodeURIComponent(query)}-${i + 1}/560/${h}`,
           fallbackUrl: `https://picsum.photos/seed/extra-${encodeURIComponent(query)}-${i + 1}/560/${h}`,
           alt: `${query} ${i + 1}`,
           width: 560,

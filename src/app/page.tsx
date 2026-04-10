@@ -115,7 +115,7 @@ const buildFallbackImageFeed = (topic: string): FeedImage[] => {
     const height = heights[i % heights.length];
     return {
       id: `${topic}-${i}`,
-      url: `https://source.unsplash.com/random/560x${height}?${q}&sig=${i + 1}`,
+      url: `https://picsum.photos/seed/${q}-${i + 1}/560/${height}`,
       fallbackUrl: `https://picsum.photos/seed/${q}-fb-${i + 1}/560/${height}`,
       alt: `photo ${i + 1} ${topic}`,
       width: 560,
@@ -401,11 +401,13 @@ export default function DialogPage() {
         }),
       });
 
+      const data = (await res.json()) as { reply?: string; error?: string };
       if (!res.ok) {
-        throw new Error("Ошибка API");
+        const errorText = data.error || "Неизвестная ошибка AI.";
+        typeBotAnswer(activeChatId, `Ошибка AI: ${errorText}`);
+        return;
       }
 
-      const data = (await res.json()) as { reply?: string };
       const fullText =
         data.reply ?? "Не удалось получить ответ. Попробуй отправить еще раз.";
       typeBotAnswer(activeChatId, fullText);
@@ -609,6 +611,7 @@ export default function DialogPage() {
                 <div className="columns-2 gap-3 md:columns-3 lg:columns-5">
                   {imageFeed.map((img) => (
                     <div key={img.id} className="group relative mb-3 break-inside-avoid">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={img.url}
                         alt={img.alt}
