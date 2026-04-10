@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { LogOut, Plus, Search, Trash2 } from "lucide-react";
+import { LogOut, Plus, Search, SendHorizontal, Trash2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -597,6 +597,14 @@ export default function DialogPage() {
               className="w-full bg-transparent text-[#1f2732] outline-none placeholder:text-[#5b7088]/55"
               disabled={isSending || !activeChatId}
             />
+            <button
+              onClick={sendMessage}
+              disabled={isSending || !activeChatId || !input.trim()}
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#70C3FF] text-white transition disabled:cursor-not-allowed disabled:opacity-50 lg:hidden"
+              aria-label="Отправить"
+            >
+              <SendHorizontal size={16} />
+            </button>
           </div>
 
           {hasFeed && (
