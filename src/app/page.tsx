@@ -481,8 +481,8 @@ export default function DialogPage() {
 
   return (
     <main className="h-screen w-full overflow-hidden bg-[radial-gradient(circle_at_top,_#ffffff_0%,_#eef5ff_50%,_#e8f1ff_100%)]">
-      <div className="mx-auto flex h-full w-full max-w-7xl gap-3 px-4 py-2 md:px-8">
-        <aside className="flex h-full w-[230px] shrink-0 flex-col rounded-[22px] border border-[#d9e5f5] bg-white/85 p-3 shadow-[0_16px_40px_rgba(48,86,130,0.12)] backdrop-blur-sm">
+      <div className="mx-auto flex h-full w-full max-w-7xl gap-3 px-2 py-2 md:px-8">
+        <aside className="hidden h-full w-[230px] shrink-0 flex-col rounded-[22px] border border-[#d9e5f5] bg-white/85 p-3 shadow-[0_16px_40px_rgba(48,86,130,0.12)] backdrop-blur-sm lg:flex">
           <div className="mb-4 flex items-center gap-2">
             <Image src="/logo.png" alt="ArleAI logo" width={38} height={38} />
             <span className="text-lg font-semibold text-[#1d2f46]">ArleAI</span>
@@ -538,7 +538,7 @@ export default function DialogPage() {
           </div>
         </aside>
 
-        <section className="flex h-full min-h-0 flex-1 flex-col overflow-hidden rounded-[24px] border border-[#d9e5f5] bg-white/80 p-4 shadow-[0_16px_40px_rgba(48,86,130,0.14)] backdrop-blur-sm md:p-5">
+        <section className="flex h-full min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[20px] border border-[#d9e5f5] bg-white/80 p-3 shadow-[0_16px_40px_rgba(48,86,130,0.14)] backdrop-blur-sm md:rounded-[24px] md:p-5">
           <div className="mb-2">
             <h1 className="text-2xl font-semibold text-[#1d2f46]">ArleAI</h1>
           </div>
